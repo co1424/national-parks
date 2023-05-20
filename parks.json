@@ -1,0 +1,22 @@
+{
+    "park1": {
+        "parkName": "Yellowstone National Park",
+        "googleMapsLocation": "https://goo.gl/maps/k2wprpM5VtRKiLdj9",
+        "mainAttractions": "The Great Prismatic",
+        "availableLodging": "Super 8 Hotel"
+    },
+
+    "park2": {
+        "parkName": "Grand Teton National Park",
+        "googleMapsLocation": "https://goo.gl/maps/v8xseWM2vbCRMnpv9",
+        "mainAttractions": "Jenny Lake",
+        "availableLodging": "Comfort Inn"
+    },
+
+    "park3": {
+        "parkName": "Zion's National Park",
+        "googleMapsLocation": "https://goo.gl/maps/1jKZ18hT71RYh4RR9",
+        "mainAttractions": "Angels Landing",
+        "availableLodging": "Hilton Hotel"
+    }
+}

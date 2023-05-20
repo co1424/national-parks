@@ -1,0 +1,88 @@
+#################################################################################################
+# LOCAL HOST ROUTES:
+#################################################################################################
+# GET REQUEST TO SEE ALL NATIONAL PARKS:
+###
+GET http://localhost:3000/national-parks HTTP/1.1
+
+# GET REQUEST TO SEE A SINGLE CONTACT IN THE CONTACT LIST:
+###
+GET http://localhost:3000/park/:id HTTP/1.1
+
+# POST REQUEST TO ADD A NEW CONTACT TO THE CONTACTS LIST.
+###
+POST http://localhost:3000/park HTTP/1.1
+Content-Type: application/json
+
+{
+    "parkName": "Yellowstone National Park",
+    "googleMapsLocation": "https://goo.gl/maps/k2wprpM5VtRKiLdj9",
+    "mainAttractions": "The Great Prismatic",
+    "availableLodging": "Super 8 Hotel"
+}
+###
+POST http://localhost:3000/park HTTP/1.1
+Content-Type: application/json
+
+{
+    "parkName": "Grand Teton National Park",
+    "googleMapsLocation": "https://goo.gl/maps/v8xseWM2vbCRMnpv9",
+    "mainAttractions": "Jenny Lake",
+    "availableLodging": "Comfort Inn"
+
+}
+###
+POST http://localhost:3000/park HTTP/1.1
+Content-Type: application/json
+
+{
+    "parkName": "Zion's National Park",
+    "googleMapsLocation": "https://goo.gl/maps/1jKZ18hT71RYh4RR9",
+    "mainAttractions": "Angels Landing",
+    "availableLodging": "Hilton Hotel"
+}
+
+
+#################################################################################################
+# RENDER ROUTES:
+#################################################################################################
+# GET REQUEST TO SEE ALL CONTACTS IN THE CONTACT LIST:
+###
+GET https://cse341-dn5l.onrender.com/national-parks HTTP/1.1
+
+# GET REQUEST TO SEE A SINGLE CONTACT IN THE CONTACT LIST:
+###
+GET https://cse341-dn5l.onrender.com/park/646906623ed0f1cea29d21f3 HTTP/1.1
+
+# POST REQUEST TO ADD A NEW CONTACT TO THE CONTACTS LIST:
+###
+POST https://cse341-dn5l.onrender.com/park HTTP/1.1
+Content-Type: application/json
+
+{
+    "parkName": "Yellowstone National Park",
+    "googleMapsLocation": "https://goo.gl/maps/k2wprpM5VtRKiLdj9",
+    "mainAttractions": "The Great Prismatic",
+    "availableLodging": "Super 8 Hotel"
+}
+###
+POST https://cse341-dn5l.onrender.com/park HTTP/1.1
+Content-Type: application/json
+
+{
+    "parkName": "Grand Teton National Park",
+    "googleMapsLocation": "https://goo.gl/maps/v8xseWM2vbCRMnpv9",
+    "mainAttractions": "Jenny Lake",
+    "availableLodging": "Comfort Inn"
+
+}
+###
+POST https://cse341-dn5l.onrender.com/park HTTP/1.1
+Content-Type: application/json
+
+{
+    "parkName": "Zion's National Park",
+    "googleMapsLocation": "https://goo.gl/maps/1jKZ18hT71RYh4RR9",
+    "mainAttractions": "Angels Landing",
+    "availableLodging": "Hilton Hotel"
+}
