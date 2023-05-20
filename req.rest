@@ -39,7 +39,7 @@ Content-Type: application/json
     "parkName": "Zion's National Park",
     "googleMapsLocation": "https://goo.gl/maps/1jKZ18hT71RYh4RR9",
     "mainAttractions": "Angels Landing",
-    "availableLodging": "Hilton Hotel"
+    "availableLodging": "Hilton Hotels"
 }
 
 
