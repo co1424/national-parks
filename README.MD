@@ -3,7 +3,7 @@
 This is a project to show how MongoDB, Node.js, JS, and Swagger can work together in both the Local and Production environment to interact with an API.
 
 
-[Software Demo Video](http://youtube.link.goes.here)
+[Software Demo Video](https://youtu.be/y7Y6o9gHa0M)
 
 # Development Environment
 
