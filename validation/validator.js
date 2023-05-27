@@ -9,7 +9,7 @@ const parkValidationRules = () => {
         // lastName must be an string
         body('googleMapsLocation').isString().withMessage('googleMapsLocation must be a string'),
         // email must be an email:
-        body('mainAttractions').isString().withMessage('mainAttractions must be a string').not().isNumeric().withMessage('availableLodging cannot be a numeric value'),
+        body('mainAttractions').isString().withMessage('mainAttractions must be a string').not().isNumeric().withMessage('mainAttractions cannot be a numeric value'),
         // color must be a string,
         body('availableLodging').isString().withMessage('availableLodging must be a string')
         .not().isNumeric().withMessage('availableLodging cannot be a numeric value'),
