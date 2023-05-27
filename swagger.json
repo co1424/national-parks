@@ -5,10 +5,10 @@
     "description": "National Parks API",
     "version": "1.0.0"
   },
-  "host": "localhost:3000",
+  "host": "national-parks-1pmq.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/api-docs": {
