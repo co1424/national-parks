@@ -15,7 +15,7 @@ app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*'); //This * is to allow any site to access my API.
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-  next();
+  next();
 });
 app.use(bodyParser.urlencoded({ extended: true })); 
 app.use(cors());
@@ -34,11 +34,15 @@ const mongdb = process.env.MONGO_URI;
 
 
 //  Testing Server
-
-
 app.get('/', (req, res) => {
   res.send('Hello World!!');
 });
+
+// Error handling: 
+process.on('uncaughtException', (err, origin) => {
+  console.log(process.stderr.fd, `Caught exception: ${err}\n` + `Exception origin: ${origin}`);
+});
+
 
 
 //  Connect to mongoDB
