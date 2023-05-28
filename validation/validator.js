@@ -5,7 +5,7 @@ const {
 const parkValidationRules = () => {
     return [
         // firstName must be an string
-        body('parkName').isString().withMessage('parkName name must be a string').not().isNumeric().withMessage('availableLodging cannot be a numeric value'),
+        body('parkName').isString().withMessage('parkName name must be a string').not().isNumeric().withMessage('parkName cannot be a numeric value'),
         // lastName must be an string
         body('googleMapsLocation').isString().withMessage('googleMapsLocation must be a string'),
         // email must be an email:
