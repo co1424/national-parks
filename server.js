@@ -10,12 +10,23 @@ const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
 const { auth } = require('express-openid-connect');
 
+/* ***********************
+ * Local Server Information
+ * Values from .env (environment) file
+ *************************/
+const port = process.env.PORT || 3000;
+const host = process.env.HOST;
+const mongdb = process.env.MONGO_URI;
+const secret = process.env.SECRET;
 
+
+/* *********************** */
 // OAuth Authentication:
+/* *********************** */
 const config = {
   authRequired: false,
   auth0Logout: true,
-  secret: 'a long, randomly-generated string stored in env',
+  secret: secret,
   baseURL: 'http://localhost:3000', //Change this when you deploy the site to the actual render.com link!
   clientID: 'sUhtq5Cvif46oQctPhi0034RD1y3qFLe',
   issuerBaseURL: 'https://dev-kvzusgguf0m4mi2x.us.auth0.com'
@@ -43,29 +54,22 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use('/', require('./routes/parksRoutes.js'));
 
 
-/* ***********************
- * Local Server Information
- * Values from .env (environment) file
- *************************/
-const port = process.env.PORT || 3000;
-const host = process.env.HOST;
-const mongdb = process.env.MONGO_URI;
-
-
-
 //  Testing Server
 app.get('/', (req, res) => {
   res.send('Hello World!!');
 });
 
+/* *********************** */
 // Error handling: 
+/* *********************** */
 process.on('uncaughtException', (err, origin) => {
   console.log(process.stderr.fd, `Caught exception: ${err}\n` + `Exception origin: ${origin}`);
 });
 
 
-
+/* *********************** */
 //  Connect to mongoDB
+/* *********************** */
 mongoose.connect(mongdb, {
     useNewUrlParser: true
   })
