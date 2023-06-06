@@ -6,7 +6,7 @@ const doc = {
         description: 'National Parks API',
         version: '1.0.0',
     },
-    host: 'localhost:3000', //use the public url when in production.
+    host: 'national-parks-1pmq.onrender.com', //use the public url when in production.
     schemes: ['https'],
 };
 
