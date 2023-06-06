@@ -30,7 +30,7 @@ const config = {
   authRequired: false,
   auth0Logout: true,
   secret: secret,
-  baseURL: 'http://https://national-parks-1pmq.onrender.com/', //Change this when you deploy the site to the actual render.com link!
+  baseURL: 'https://national-parks-1pmq.onrender.com/', //Change this when you deploy the site to the actual render.com link!
   clientID: 'sUhtq5Cvif46oQctPhi0034RD1y3qFLe',
   issuerBaseURL: 'https://dev-kvzusgguf0m4mi2x.us.auth0.com'
 };
