@@ -8,9 +8,7 @@ router.post('/park', parkValidationRules(), validate, parksController.createPark
 router.get('/national-parks', parksController.getAllNationalParks);
 // Gets a single National Park by id
 router.get('/park/:id', parksController.getNationalParkById);
-// Updates a contact by id
-router.put('/park/:id', parkValidationRules(), validate, parksController.updateParkById);
-// Deletes a contact by id
-router.delete('/park/:id', parksController.deleteParkById);
+// PROTECTED ROUTES ARE LOCATED AT SERVER.JS.
+
 
 module.exports = router;

@@ -4,11 +4,14 @@ const bodyParser = require('body-parser');
 const env = require('dotenv').config();
 const cors = require('cors');
 const mongoose = require('mongoose');
-
 const swaggerAutogen = require('swagger-autogen')();
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
 const { auth } = require('express-openid-connect');
+const router = new express.Router();
+const parksController = require('./controllers/parksController');
+const { parkValidationRules, validate } = require('./validation/validator');
+const { requiresAuth } = require('express-openid-connect');
 
 /* ***********************
  * Local Server Information
@@ -37,8 +40,42 @@ app.use(auth(config));
 
 // req.isAuthenticated is provided from the auth router
 app.get('/', (req, res) => {
-  res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
+  res.send(req.oidc.isAuthenticated() ? 'You are currently logged in' : 'You are currently logged out');
 });
+
+// Updates a contact by id // requiresAuth checks authentication. // Returns to /login if not authenticated.
+app.put('/park/:id', requiresAuth(), parkValidationRules(), validate, (req, res) => {
+  if (req.oidc.isAuthenticated()) {
+    parksController.updateParkById(req, res);
+  } else {
+    res.redirect('/login'); // Redirect to the login page if not authenticated
+  }
+});
+
+// Deletes a contact by id // requiresAuth checks authentication. // Returns to /login if not authenticated.
+app.delete('/park/:id', requiresAuth(), (req, res) => {
+  if (req.oidc.isAuthenticated()) {
+    parksController.deleteParkById(req, res);
+  } else {
+    res.redirect('/login'); // Redirect to the login page if not authenticated
+  }
+});
+
+// Middleware to show error message if used failed to authenticate:
+app.use((err, req, res, next) => {
+  if (err.name === 'UnauthorizedError') {
+    res.status(401).send('Unauthorized! Please login to authenticate. Go to: https://national-parks-1pmq.onrender.com/login'); // Sending a shorter error message for 401 Unauthorized
+  } else {
+    next(err);
+  }
+});
+
+
+
+/* *********************** */
+/* *********************** */
+/* *********************** */
+
 
 
 app.use(bodyParser.json());
@@ -56,7 +93,7 @@ app.use('/', require('./routes/parksRoutes.js'));
 
 //  Testing Server
 app.get('/', (req, res) => {
-  res.send('Hello World!!');
+  res.send(`Server is up and working at ${host}:${port}!`);
 });
 
 /* *********************** */
