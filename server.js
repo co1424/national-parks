@@ -23,6 +23,17 @@ const mongdb = process.env.MONGO_URI;
 const secret = process.env.SECRET;
 
 app.use(bodyParser.json());
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*'); //This * is to allow any site to access my API.
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  next();
+});
+app.use(bodyParser.urlencoded({ extended: true })); 
+app.use(cors());
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use('/', require('./routes/parksRoutes.js'));
+
 /* *********************** */
 // OAuth Authentication:
 /* *********************** */
@@ -79,16 +90,7 @@ app.use((err, req, res, next) => {
 
 
 
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', '*'); //This * is to allow any site to access my API.
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-  next();
-});
-app.use(bodyParser.urlencoded({ extended: true })); 
-app.use(cors());
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-app.use('/', require('./routes/parksRoutes.js'));
+
 
 
 //  Testing Server
