@@ -42,6 +42,17 @@ Content-Type: application/json
     "availableLodging": "Hilton Hotels"
 }
 
+###
+PUT  http://localhost:3000/park/64690fd181d6e265579cd2af HTTP/1.1
+Content-Type: application/json
+
+{
+    "parkName": "Pion's National Park",
+    "googleMapsLocation": "https://goo.gl/maps/1jKZ18hT71RYh4RR9",
+    "mainAttractions": "Angels Landing",
+    "availableLodging": "Hilton Hotels"
+}
+
 
 #################################################################################################
 # RENDER ROUTES:
