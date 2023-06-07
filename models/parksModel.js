@@ -9,7 +9,7 @@ const nationalParksSchema = mongoose.Schema(
 
         googleMapsLocation: {
             type: String,
-            required: [true, 'Google Maps Location is required']
+            required: [false, 'Google Maps Location is required']
         },
 
         mainAttractions: {

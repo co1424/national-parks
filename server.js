@@ -22,7 +22,7 @@ const host = process.env.HOST;
 const mongdb = process.env.MONGO_URI;
 const secret = process.env.SECRET;
 
-
+app.use(bodyParser.json());
 /* *********************** */
 // OAuth Authentication:
 /* *********************** */
@@ -78,7 +78,7 @@ app.use((err, req, res, next) => {
 
 
 
-app.use(bodyParser.json());
+
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*'); //This * is to allow any site to access my API.
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
